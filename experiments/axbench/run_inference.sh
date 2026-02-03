@@ -42,7 +42,7 @@ mkdir -p ${DUMP_DIR}
 # Options:
 #   two_way_steering, positive_steering, negative steering: Steering
 #######################################
-MODE="$@"
+MODE="positive_steering"
 
 if [[ -z ${MODE} ]]
 then

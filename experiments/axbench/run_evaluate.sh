@@ -40,7 +40,7 @@ mkdir -p ${DUMP_DIR}
 # Options:
 #   steering: Evaluate steering generations.
 #######################################
-MODE="$@"
+MODE="steering"
 
 if [[ -z ${MODE} ]]
 then
