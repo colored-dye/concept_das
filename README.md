@@ -2,7 +2,7 @@
 
 Our paper is [accepted by ICLR 2026](https://openreview.net/forum?id=LoisXFZL3k).
 
-Data release also at [:hugs: Huggingface dataset](https://huggingface.co/datasets/colored-dye/axbench_contrastive).
+Data release also at [:hugs: Huggingface dataset](https://huggingface.co/datasets/colored-dye/concept500_contrastive).
 
 Our *Concept DAS (CDAS)* is inspired by *distributed alignment search (DAS)*, which uses *distributed interchange interventions (DIIs)*.
 
