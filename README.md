@@ -89,6 +89,7 @@ We introduce the pipeline assuming
 Scripts:
 
 - Training: `experiments/axbench/run_train.sh`
+- Gather steering factors: `experiments/axbench/run_contrast_inference.sh factor`
 - Inference: `experiments/axbench/run_inference.sh`
 - Evaluation: `experiments/axbench/run_evaluate.sh`
 
@@ -105,7 +106,8 @@ Modify:
 Scripts:
 
 - Training: `experiments/refusal/run_train.sh`
-- Bi-directional inference: `experiments/refusal/run_contrast_inference.sh`
+- Gather steering factors: `experiments/refusal/run_contrast_inference.sh factor`
+- Bi-directional inference: `experiments/refusal/run_contrast_inference.sh two_way_steering`
 - Evaluation: `experiments/refusal/run_evaluate.sh`
 - Standard capability benchmark eval: `experiments/refusal/run_benchmark.sh`
 
