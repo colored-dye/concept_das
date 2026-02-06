@@ -6,7 +6,7 @@
   </a>
   <a href="https://huggingface.co/datasets/colored-dye/concept500_contrastive" style="margin: 2px;">
     <img alt="Hugging Face dataset"
-    src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-DeepSeek%20AI-ffc107?color=ffc107&logoColor=white" style="display: inline-block; vertical-align: middle;"/>
+    src="https://img.shields.io/badge/🤗%20Hugging%20Face-Dataset-ffc107?color=ffc107&logoColor=white" style="display: inline-block; vertical-align: middle;"/>
   </a>
   <a href="LICENSE" style="margin: 2px;">
     <img alt="License" src="https://img.shields.io/badge/License-MIT-&color=f5de53" style="display: inline-block; vertical-align: middle;"/>
@@ -18,13 +18,18 @@ Our paper is [accepted by ICLR 2026](https://openreview.net/forum?id=LoisXFZL3k)
 
 Data release also at [:hugs: Huggingface dataset](https://huggingface.co/datasets/colored-dye/concept500_contrastive).
 
-Our _Concept DAS (CDAS)_ is inspired by _distributed alignment search (DAS)_, which uses _distributed interchange interventions (DIIs)_.
+We propose an alternative to training-based _steering vectors (SVs)_: _Concept DAS (CDAS)_.
+CDAS consists of two key design choices:
+1. _Distributed interchange intervention (DII)_, which is the intervention protocol of the causal abstraction method, _distributed alignment search (DAS)_.
+2. _Distribution matching objective_ based on Jensen-Shannon divergence.
 
-## Library: `cdas` (more to come)
+<img src="assets/DII.png" alt="DII" width="600" style="display: block; margin: auto;">
+
+## Library: `cdas`
 
 This library is based on [AxBench](https://github.com/stanfordnlp/axbench); shout out to the authors & maintainers!
 
-We primarily study rank-1 _steering vectors (SVs)_.
+We primarily study rank-1 SVs.
 
 :sparkles: Supports:
 
