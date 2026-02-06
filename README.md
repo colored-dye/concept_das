@@ -1,17 +1,30 @@
 # Concept DAS: Faithful Bi-Directional Model Steering via Distribution Matching and Distributed Interchange Interventions
 
+<div align="center" style="line-height: 1;">
+  <a href="https://arxiv.org/abs/2602.05234" style="margin: 2px;">
+    <img alt="Arxiv" src="https://img.shields.io/badge/arXiv-2602.05234-b31b1b" style="display: inline-block; vertical-align: middle;"/>
+  </a>
+  <a href="https://huggingface.co/datasets/colored-dye/concept500_contrastive" style="margin: 2px;">
+    <img alt="Hugging Face dataset"
+    src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-DeepSeek%20AI-ffc107?color=ffc107&logoColor=white" style="display: inline-block; vertical-align: middle;"/>
+  </a>
+  <a href="LICENSE" style="margin: 2px;">
+    <img alt="License" src="https://img.shields.io/badge/License-MIT-&color=f5de53" style="display: inline-block; vertical-align: middle;"/>
+  </a>
+  <br>
+</div>
+
 Our paper is [accepted by ICLR 2026](https://openreview.net/forum?id=LoisXFZL3k).
 
 Data release also at [:hugs: Huggingface dataset](https://huggingface.co/datasets/colored-dye/concept500_contrastive).
 
-Our *Concept DAS (CDAS)* is inspired by *distributed alignment search (DAS)*, which uses *distributed interchange interventions (DIIs)*.
-
+Our _Concept DAS (CDAS)_ is inspired by _distributed alignment search (DAS)_, which uses _distributed interchange interventions (DIIs)_.
 
 ## Library: `cdas` (more to come)
 
 This library is based on [AxBench](https://github.com/stanfordnlp/axbench); shout out to the authors & maintainers!
 
-We primarily study rank-1 *steering vectors (SVs)*.
+We primarily study rank-1 _steering vectors (SVs)_.
 
 :sparkles: Supports:
 
@@ -26,19 +39,17 @@ We primarily study rank-1 *steering vectors (SVs)*.
 
 1. Training non-DII SVs listed by AxBench.
 
-
 ## Steering vectors :arrow_upper_right:
 
 The following SVs use DIIs,
 whose names are tracked by `MODELS_WITH_FACTOR_FILE` of `cdas/constants.py`:
 
-* `CDASModel`, `CDASVector`: Our method; *Jensen-Shannon divergence (JSD)* loss.
-* `DASModel`, `DASVector`: Cross-entropy loss.
-* `KLDASModel`, `KLDASVector`: Ablation; KL divergence loss (forward/reverse mode).
-* `PDASModel`, `PDASVector`: Ablation; preference optimization objectives (SimPO/DPO loss).
+- `CDASModel`, `CDASVector`: Our method; _Jensen-Shannon divergence (JSD)_ loss.
+- `DASModel`, `DASVector`: Cross-entropy loss.
+- `KLDASModel`, `KLDASVector`: Ablation; KL divergence loss (forward/reverse mode).
+- `PDASModel`, `PDASVector`: Ablation; preference optimization objectives (SimPO/DPO loss).
 
 These SVs use `InterchangeSubspaceIntervention` for training and `ClampingSubspaceIntervention` for inference (`cdas/models/interventions.py`).
-
 
 ### Configurations :wrench:
 
@@ -49,14 +60,15 @@ There are several fields specific to DII-based methods:
 - `source_tokens`: Usually suffix of chat template; extract representations from the last token.
 
   For example, the chat template of Gemma-2 models is:
+
   ```
   <start_of_turn>user
   {instruction}<end_of_turn>
   <start_of_turn>model
   {response}
   ```
-  Then we use `<start_of_turn>model\n` as `source_tokens` by default and use representations from `\n` for DII.
 
+  Then we use `<start_of_turn>model\n` as `source_tokens` by default and use representations from `\n` for DII.
 
 ## Contrastive training data for AxBench
 
@@ -80,7 +92,6 @@ python generate_contrastive_data.py \
     --max_concepts 10
 ```
 
-
 ## AxBench pipeline
 
 AxBench evaluation requires three steps: training, inference and evaluation.
@@ -99,7 +110,6 @@ Modify:
 - `AXBENCH_CFG`: 2b_l10, 2b_l20, 9b_l20, 9b_l31.
 - `MODEL_NAME`: SV method name; cdas, das.
 - `DUMP_DIR`: Save path.
-
 
 ## Refusal concept in safety-aligned models
 
@@ -120,7 +130,6 @@ Modify:
 - `HF_MODEL_PATH`: Model path or id.
 - `LAYERS`
 
-
 ## Replicate RePS
 
 We adapt the [AxBench codebase](https://github.com/stanfordnlp/axbench) for three more tasks:
@@ -129,3 +138,15 @@ We adapt the [AxBench codebase](https://github.com/stanfordnlp/axbench) for thre
 - Refusal concept: `axbench/axbench/refusal/`.
 - AxBench concepts on Qwen models: `axbench/axbench/ablation/`.
 
+## Citation
+
+If our work helps you, please cite as:
+
+```bibtex
+@article{bao2026faithful,
+  title={Faithful Bi-Directional Model Steering via Distribution Matching and Distributed Interchange Interventions},
+  author={Bao, Yuntai and Zhang, Xuhong and Chen, Jintao and Su, Ge and Cai, Yuxiang and Peng, Hao and Sun, Bing and Weng, Haiqin and Yan, Liu and Yin, Jianwei},
+  journal={arXiv preprint arXiv:2602.05234},
+  year={2026}
+}
+```
